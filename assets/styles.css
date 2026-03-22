@@ -1,0 +1,223 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #cabba4dc;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+}
+
+/* =========================
+   CONTAINER PRINCIPAL
+   ========================= */
+.phone {
+  width: min(520px, 96vw);      /* bom no PC e no mobile */
+  background: #f7f3ea;
+  border-radius: 27px;
+  overflow: hidden;
+  border: 3px solid #8b858583;
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+}
+
+/* =========================
+   TOPO (FOTO RJ + LOGO CENTRAL + TITULO ABAIXO)
+   ========================= */
+.top {
+  padding: 26px 16px 18px;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  /* FOTO RJ COMO FUNDO */
+  background-image:
+    linear-gradient(rgba(0,0,0,.40), rgba(0,0,0,.40)),
+    url("img/rj.jpg");
+  background-size: cover;
+  background-position: center 55%;
+  background-repeat: no-repeat;
+}
+
+/* ===== LOGO SEM CÍRCULO ===== */
+.logo-container {
+  /* remove qualquer “bolinha” */
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo PNG: não cortar e centralizar */
+.logo-img {
+  width: 180px;          /* tamanho bom */
+  max-width: 75%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.65));
+}
+
+/* Texto “Cardápio” em cima da foto */
+.subtitle {
+  font-weight: 900;
+  color: #ffffff;
+  font-size: 22px;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  text-shadow: 0 3px 6px rgba(0,0,0,.75);
+
+  background: rgba(0,0,0,.22);
+  padding: 6px 18px;
+  border-radius: 12px;
+}
+
+/* =========================
+   ABAS
+   ========================= */
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 12px;
+  background: #2aa2ff;
+}
+
+.tab {
+  border: none;
+  padding: 12px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+  background: rgba(255,255,255,.25);
+  color: #fff;
+  transition: 0.2s;
+}
+.tab.active { background: #ffbf2f; color: #102a43; }
+
+/* =========================
+   CATEGORIAS
+   ========================= */
+.chips {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  overflow-x: auto;
+  background: #f2efe7;
+}
+.chips::-webkit-scrollbar { height: 8px; }
+.chips::-webkit-scrollbar-thumb { background: rgba(0,0,0,.18); border-radius: 999px; }
+
+.chip {
+  border: 1px solid rgba(0,0,0,.12);
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.chip.active { background: #2a78ff; color: #fff; border-color: transparent; }
+
+/* =========================
+   REMOVE A ÁREA DE FOTOS (SE EXISTIR)
+   ========================= */
+.cards, #featuredCards { display: none !important; }
+
+/* =========================
+   LISTA DO CARDÁPIO
+   (NÃO MEXI — permanece igual)
+   ========================= */
+.board {
+  margin: 0 12px 12px;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+.board-title {
+  background: #c76b15d8;
+  border-radius: 17px;
+  color: #fff;
+  font-weight: 900;
+  padding: 12px 14px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.list { padding: 10px 14px; }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(0,0,0,.18);
+}
+.row:last-child { border-bottom: none; }
+
+.left { min-width: 0; }
+.name { font-weight: 900; color: #102a43; font-size: 16px; }
+.desc { margin-top: 4px; font-size: 13px; color: rgba(0,0,0,.62); line-height: 1.25; }
+.price { font-weight: 900; color: #0b3d91; white-space: nowrap; font-size: 16px; }
+
+/* =========================
+   RODAPÉ
+   ========================= */
+.footer {
+  padding: 14px 12px 18px;
+  text-align: center;
+  background: #f7f3ea;
+  border-top: 1px solid rgba(0,0,0,.08);
+  font-weight: 800;
+}
+.footer .small { margin-top: 6px; font-weight: 600; opacity: .75; font-size: 12px; }
+
+/* =========================
+   MOBILE
+   ========================= */
+@media (max-width: 480px) {
+  body { padding: 12px; }
+
+  .phone {
+    width: 100%;
+    border-width: 8px;
+    border-radius: 22px;
+  }
+
+  /* logo maior no mobile fica ruim, reduz */
+  .logo-img {
+    width: 150px;
+    max-width: 78%;
+  }
+
+  .subtitle { font-size: 18px; }
+  .tab { padding: 11px 10px; font-size: 14px; }
+  .name, .price { font-size: 15px; }
+}
+
+/* =========================
+   PC (TELAS MAIORES)
+   ========================= */
+@media (min-width: 900px) {
+  body { padding: 40px; }
+
+  .phone { width: 680px; }
+
+  .board { margin: 0 18px 18px; }
+
+  .tabs, .chips {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}

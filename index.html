@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cardápio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="phone">
+
+    <!-- TOPO -->
+    <header class="top">
+      <div class="logo-container">
+        <!-- LOGO -->
+        <img src="img/logo.png" class="logo-img logo-is-png" alt="Sítio H2O">
+      </div>
+
+      <div class="subtitle">Cardápio</div>
+    </header>
+
+    <!-- ABAS -->
+    <section class="tabs">
+      <button class="tab active" data-tab="Comidas">Comidas</button>
+      <button class="tab" data-tab="Bebidas">Bebidas</button>
+    </section>
+
+    <!-- CATEGORIAS -->
+    <section class="chips" id="categoryChips"></section>
+
+    <!-- CARDÁPIO COM TÁBUA -->
+    <section class="board board-tabua">
+
+      <div class="board-title" id="boardTitle">Itens</div>
+      <div class="list" id="menuList"></div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+      <div>✅ Aceitamos cartões</div>
+      <div class="small">Seu site • seu domínio</div>
+    </footer>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="menu.js"></script>
+</body>
+</html>
